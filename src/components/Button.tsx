@@ -1,5 +1,5 @@
 type ButtonPropsType = {
-  name: string
+  name?: string
   callback:()=>void
 }
 

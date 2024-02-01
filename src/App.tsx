@@ -3,6 +3,7 @@ import {NewComponent} from "./NewComponent";
 import {Button} from "./components/Button";
 
 function App() {
+  let [num, setNum] = useState(1)
   const [students, setStudents] = useState([
       {id: 1, name: "James", age: 8},
       {id: 2, name: "Robert", age: 18},
@@ -22,14 +23,21 @@ function App() {
     return console.log(`I'm first`)
   }*/
 
-  const firstSubscriber = () =>{
+/*  const firstSubscriber = () =>{
     console.log('Dima')
   }
 
   const secondSubscriber = (name:string) => {
     return console.log(name)
-  }
+  }*/
 
+
+  const increaseNumber = () => {
+    setNum(++num);
+  }
+  const setToZero = () => {
+    setNum(0)
+  }
 
   return (
     <div>
@@ -39,9 +47,12 @@ function App() {
       <button onClick={() => secondSubscriber('Nick')}>Click me</button>*/}
 
 {/*      <NewComponent students={students}/>*/}
-
+{/*
       <Button callback={firstSubscriber} name='Channel1'/>
-      <Button callback={()=>secondSubscriber('Second')} name='Channel2'/>
+      <Button callback={()=>secondSubscriber('Second')} name='Channel2'/>*/}
+      <div>{num}</div>
+      <Button callback={increaseNumber} name={'Increase'}/>
+      <Button callback={setToZero} name={'Zero'}/>
     </div>
   );
 }
