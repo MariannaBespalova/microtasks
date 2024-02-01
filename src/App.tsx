@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {NewComponent} from "./NewComponent";
+import {Button} from "./components/Button";
 
 function App() {
   const [students, setStudents] = useState([
@@ -16,8 +17,32 @@ function App() {
       {id: 11, name: "Christopher", age: 100},
     ]
   )
+
+/*  const initialButton = (event:MouseEvent<HTMLButtonElement>) => {
+    return console.log(`I'm first`)
+  }*/
+
+  const firstSubscriber = () =>{
+    console.log('Dima')
+  }
+
+  const secondSubscriber = (name:string) => {
+    return console.log(name)
+  }
+
+
   return (
-    <NewComponent students={students}/>
+    <div>
+
+{/*      <button onClick={initialButton}>Click me</button>*/}
+{/*      <button onClick={firstSubscriber}>Click me</button>
+      <button onClick={() => secondSubscriber('Nick')}>Click me</button>*/}
+
+{/*      <NewComponent students={students}/>*/}
+
+      <Button callback={firstSubscriber} name='Channel1'/>
+      <Button callback={()=>secondSubscriber('Second')} name='Channel2'/>
+    </div>
   );
 }
 
